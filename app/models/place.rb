@@ -1,7 +1,5 @@
 class Place < ActiveRecord::Base
-  searchable do
-    text :name
-  end
+
   has_many :reviews
   belongs_to :category
   validates_presence_of :name
