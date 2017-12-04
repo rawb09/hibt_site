@@ -69,7 +69,7 @@
                     <% end %>
                   </a>
                   <% if place.reviews.present? %>
-                  <span class="prop-tag star-rating" data-score=<%= place.reviews.average(:rating).round(2) %>></span>
+                  <span class="prop-tag star-rating" data-score=<%= place.reviews.average(:rating) %>></span>
                 <% else %>
                   <span class="prop-tag">No reviews yet!</span>
                   <% end %>
@@ -106,7 +106,7 @@
                     <% end %>
                   </a>
                   <% if place.reviews.present? %>
-                  <span class="prop-tag star-rating" data-score=<%= place.reviews.average(:rating).round(2) %>></span>
+                  <span class="prop-tag star-rating" data-score=<%= place.reviews.average(:rating) %>></span>
                 <% else %>
                   <span class="prop-tag">No reviews yet!</span>
                   <% end %>
@@ -148,7 +148,7 @@
           <ul class="more-info clearfix">
             <li class="info-label clearfix"><%= link_to place.name, place %>
               <% if place.reviews.present? %>
-              <span class="qty pull-right star-rating" data-score=<%= place.reviews.average(:rating).round(2) %>></span>
+              <span class="qty pull-right star-rating" data-score=<%= place.reviews.average(:rating) %>></span>
             <% else %>
               <span class="qty pull-right">No reviews yet!</span>
               <% end %>
@@ -166,7 +166,7 @@
           <ul class="more-info clearfix">
             <li class="info-label clearfix"><%= link_to place.name, place %>
               <% if place.reviews.present? %>
-              <span class="qty pull-right star-rating" data-score=<%= place.reviews.average(:rating).round(2) %>></span>
+              <span class="qty pull-right star-rating" data-score=<%= place.reviews.average(:rating) %>></span>
             <% else %>
               <span class="qty pull-right">No reviews yet!</span>
               <% end %>
@@ -184,7 +184,7 @@
           <ul class="more-info clearfix">
             <li class="info-label clearfix"><%= link_to place.name, place %>
               <% if place.reviews.present? %>
-              <span class="qty pull-right star-rating" data-score=<%= place.reviews.average(:rating).round(2) %>></span>
+              <span class="qty pull-right star-rating" data-score=<%= place.reviews.average(:rating) %>></span>
             <% else %>
               <span class="qty pull-right">No reviews yet!</span>
               <% end %>
@@ -202,7 +202,7 @@
           <ul class="more-info clearfix">
             <li class="info-label clearfix"><%= link_to place.name, place %>
               <% if place.reviews.present? %>
-              <span class="qty pull-right star-rating" data-score=<%= place.reviews.average(:rating).round(2) %>></span>
+              <span class="qty pull-right star-rating" data-score=<%= place.reviews.average(:rating) %>></span>
             <% else %>
               <span class="qty pull-right">No reviews yet!</span>
               <% end %>
