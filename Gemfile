@@ -8,8 +8,6 @@ end
 gem 'bootstrap'
 gem 'carrierwave'
 gem 'geocoder'
-gem 'sunspot_solr'
-gem 'sunspot_rails'
 gem 'jquery-rails'
 gem 'devise'
 gem 'font-awesome-rails'
