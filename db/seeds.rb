@@ -13,3 +13,12 @@ ocean_view = Category.where(name: "Ocean View").first_or_create(name: "Ocean Vie
 park = Category.where(name: "Park").first_or_create(name: "Park")
 trail = Category.where(name: "Trail").first_or_create(name: "Trail")
 waterfall = Category.where(name: "Waterfall").first_or_create(name: "Waterfall")
+
+Place.where(name: "Stinson Beach").first_or_create(name: "Stinson Beach",) description: "beach", city: "bolinas", state: "ca")
+Place.where(name: "Stinson Beach").first_or_create(name: "Stinson Beach",) description: "beach", city: "bolinas", state: "ca")
+Place.where(name: "Stinson Beach").first_or_create(name: "Stinson Beach",) description: "beach", city: "bolinas", state: "ca")
+Place.where(name: "Stinson Beach").first_or_create(name: "Stinson Beach",) description: "beach", city: "bolinas", state: "ca")
+Place.where(name: "Stinson Beach").first_or_create(name: "Stinson Beach",) description: "beach", city: "bolinas", state: "ca")
+Place.where(name: "Stinson Beach").first_or_create(name: "Stinson Beach",) description: "beach", city: "bolinas", state: "ca")
+Place.where(name: "Stinson Beach").first_or_create(name: "Stinson Beach",) description: "beach", city: "bolinas", state: "ca")
+Place.where(name: "Stinson Beach").first_or_create(name: "Stinson Beach",) description: "beach", city: "bolinas", state: "ca")
