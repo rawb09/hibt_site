@@ -1,0 +1,46 @@
+
+<div class="container page-content">
+  <div class="row">
+    <div class="span8">
+      <div class="box-container">
+        <div class="padding30">
+          <h2 class="page-title">Write a Review</h2>
+          <%= form_for [@place, @review] do |f| %>
+          <%= f.text_area :comment %>
+                  <div class="padding30">
+                    <p> Rate this place 1-5 Stars</p>
+          <div id="star-rating"></div>
+        </div>
+          <div class="row-fluid">
+            <div class="clearfix">
+          <%= f.submit class: "btn btn-realto span6" %> </div>
+          <% end %>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- .span8 -->
+  <div class="span4 widget">
+    <div class="widget map box-container padding30">
+      <h3 class="widget-title">Get Directions</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.165562333256!2d-122.5316655848263!3d37.97326537972377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808599fbaf575bad%3A0x970cfbe92fb810a5!2sB+St+%26+4th+St%2C+San+Rafael%2C+CA+94901!5e0!3m2!1sen!2sus!4v1512126772346" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+      <dl class="margin0">
+        <dt>Hey I've Been There!</dt>
+        <dd class="margin0">1000 Main Street</dd>
+        <dd class="margin0">San Rafael, CA 94960</dd>
+      </dl>
+    </div>
+  </div>
+  <!-- .span4 -->
+</div>
+<!-- .row -->
+</div>
+<!-- .container -->
+<script>
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'review[rating]'
+});
+</script>

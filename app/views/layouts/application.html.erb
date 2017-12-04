@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/jquery.raty.css">
+    <script src="jquery.raty.js"></script>
+
+    <title>HeyIveBeenThere</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+
+  </head>
+
+  <body>
+    <%= render 'layouts/header' %>
+    <div class="container">
+<%= render 'layouts/messages' %>
+  </div>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+    <script>
+    $('.star-rating').raty({
+      path: '/assets',
+      readOnly: true,
+      score: function () {
+        return $(this).attr('data-score');
+      }
+    });
+
+  </body>
+</html>

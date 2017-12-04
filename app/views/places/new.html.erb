@@ -1,0 +1,58 @@
+
+<div class="container page-content">
+  <div class="row">
+    <div class="span8">
+      <div class="box-container">
+        <div class="padding30">
+          <h2 class="page-title">Write a Review!</h2>
+          <ul class="unstyled">
+            <li>
+              <%= form_for @place do |f| %>
+              <%= f.label :name %>
+              <%= f.text_field :name %>
+              <%= f.label :description %>
+              <%= f.text_area :description %><br />
+              <%= f.select :category_id, Category.all.map{ |f| [f.name, f.id] } %>
+              <%= f.label :address %>
+              <%= f.text_field :address %>
+              <%= f.label :city %>
+              <%= f.text_field :city %>
+              <%= f.label :state %>
+              <%= f.text_field :state %>
+              <%= f.label :zipcode %>
+              <%= f.text_field :zipcode %>
+              <%= f.label :phone %>
+              <%= f.text_field :phone %>
+              <%= f.label :email %>
+              <%= f.text_field :email %></br> Upload your image of the location here. </br>
+              <%= f.file_field :image %>
+              <%= f.submit class:"btn btn-realto span6" %>
+              <% end %></li>
+            <li>
+          </ul>
+          <div class="row-fluid">
+            <form action="#" class="margin300" method="post"/>
+            <div class="clearfix">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- .span8 -->
+  <div class="span4 widget">
+    <div class="widget map box-container padding30">
+      <h3 class="widget-title">Get Directions</h3>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.165562333256!2d-122.5316655848263!3d37.97326537972377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808599fbaf575bad%3A0x970cfbe92fb810a5!2sB+St+%26+4th+St%2C+San+Rafael%2C+CA+94901!5e0!3m2!1sen!2sus!4v1512126772346" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+      <dl class="margin0">
+        <dt>Hey I've Been There</dt>
+        <dd class="margin0">1000 Main Street</dd>
+        <dd class="margin0">San Rafael, CA 94901</dd>
+      </dl>
+    </div>
+  </div>
+  <!-- .span4 -->
+</div>
+<!-- .row -->
+</div>
+<!-- .container -->

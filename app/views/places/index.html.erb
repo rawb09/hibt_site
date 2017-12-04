@@ -1,0 +1,333 @@
+<div id="home-search-container">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <div class="widget pull-right">
+          <div class="row">
+            <div class="span12 head-container">
+              <div class="row">
+                <div class="span8 hidden-phone">
+                  <h2 class="head-title">Hey I've Been There!</h2>
+                  <p class="head-message">
+                    <strong>The best solution for finding your next destination!</strong><br/>
+                    This application is appropriate for someone looking for an amazing destination, who doesn't wanna waste their time.</p>
+                  <%= link_to "Write a Review", new_place_path,class: "btn btn-large btn-realto span3 header-cta" %>
+                </div>
+                <div class="span4" style="padding-bottom: 80px;">
+                  <div class="search-form">
+                    <p>Find your next adventure!</p>
+                    <%= form_tag search_places_path, method: :get do |f| %>
+                    <%= text_field_tag :search, nil, placeholder: "stinson beach, marin headlands, etc." %>
+                    <%= text_field_tag :location, nil, placeholder: "san francisco, miami, etc." %>
+                    <%= select_tag :category, options_for_select(Category.all.map{ |c| [c.name, c.id]}) %>
+                    <%= submit_tag 'Search', class: "btn span2 btn-realto-form btn-large" %>
+                    <% end %>
+                  </div>
+                  <!-- .search-form -->
+                </div>
+                <!-- .span4 -->
+              </div>
+            </div>
+          </div>
+          <!-- .row -->
+        </div>
+        <!-- .search-holder -->
+      </div>
+      <!-- .span12 -->
+    </div>
+    <!-- .row -->
+  </div>
+  <!-- .container -->
+</div>
+<div id="latest-properties">
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <h2 class="secion-title">Destinations</h2>
+      </div>
+    </div>
+    <!-- Begin Carousel -->
+    <div class="row">
+      <div id="realto-carousel" class="carousel slide span12">
+        <div class="carousel-navigation pull-right">
+          <%= link_to "View All".html_safe, all_path, class: "serif italic pull-left view-all-carousel"  %>
+          <a class="left carousel-control pull-left" href="#realto-carousel" data-slide="prev">‹</a>
+          <a class="right carousel-control pull-right" href="#realto-carousel" data-slide="next">›</a>
+        </div>
+        <div class="carousel-inner">
+          <div class="item active">
+            <ul class="thumbnails">
+              <% @places.last(3).each do |place| %>
+              <li class="span4 box-container">
+                <div class="holder">
+                  <a class="overlay" title="property title" href="#">
+                    <span class="more"></span>
+                    <% if place.image_url.present? %>
+                    <%= link_to image_tag(place.image_url.to_s), place %>
+                  <% else %>
+                    <%= link_to image_tag("http://placehold.it/370x210"), place %>
+                    <% end %>
+                  </a>
+                  <% if place.reviews.present? %>
+                  <span class="prop-tag star-rating" data-score=<%= place.reviews.average(:rating).round(2) %>></span>
+                <% else %>
+                  <span class="prop-tag">No reviews yet!</span>
+                  <% end %>
+                  <div class="prop-info">
+                    <h3 class="prop-title"><%= link_to place.name, place %></h3>
+                    <ul class="more-info clearfix">
+                      <li class="info-label clearfix">
+                        <span class="pull-left">Address:</span>
+                        <span class="qty pull-right">4</span>
+                      </li>
+                      <li class="info-label clearfix">
+                        <span class="pull-left">City:</span>
+                        <span class="qty pull-right">2</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+          <!-- .item -->
+          <div class="item">
+            <ul class="thumbnails">
+              <% @places.order(:id).reverse_order.limit(3).offset(3).each do |place| %>
+              <li class="span4 box-container">
+                <div class="holder">
+                  <a class="overlay" title="property title" href="#">
+                    <span class="more"></span>
+                    <% if place.image_url.present? %>
+                    <%= link_to image_tag(place.image_url.to_s), place %>
+                  <% else %>
+                    <%= link_to image_tag("http://placehold.it/370x210"), place %>
+                    <% end %>
+                  </a>
+                  <% if place.reviews.present? %>
+                  <span class="prop-tag star-rating" data-score=<%= place.reviews.average(:rating).round(2) %>></span>
+                <% else %>
+                  <span class="prop-tag">No reviews yet!</span>
+                  <% end %>
+                  <div class="prop-info">
+                    <h3 class="prop-title"><%= link_to place.name, place %></h3>
+                    <ul class="more-info clearfix">
+                      <li class="info-label clearfix">
+                        <span class="pull-left">Address:</span>
+                        <span class="qty pull-right">4</span>
+                      </li>
+                      <li class="info-label clearfix">
+                        <span class="pull-left">City:</span>
+                        <span class="qty pull-right">2</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+          <!-- .item -->
+        </div>
+        <!-- .carousel-inner -->
+      </div>
+    </div>
+    <!--End Carousel-->
+  </div>
+  <!-- .container  -->
+</div>
+<!-- #latest-properties  -->
+<div class="container">
+  <div class="row">
+    <div class="home-bottom-top">
+      <div class="span3">
+        <div class="info-box">
+          <h2 class="secion-title">Beaches</h2>
+          <% @beach_places.limit(5).each do |place| %>
+          <ul class="more-info clearfix">
+            <li class="info-label clearfix"><%= link_to place.name, place %>
+              <% if place.reviews.present? %>
+              <span class="qty pull-right star-rating" data-score=<%= place.reviews.average(:rating).round(2) %>></span>
+            <% else %>
+              <span class="qty pull-right">No reviews yet!</span>
+              <% end %>
+            </li>
+          </ul>
+          <% end %>
+          <%= link_to "Continue &raquo".html_safe, beach_path %>
+        </div>
+      </div>
+      <!-- .span4 -->
+      <div class="span3">
+        <div class="info-box">
+          <h2 class="secion-title">Trails</h2>
+          <% @trail_places.limit(5).each do |place| %>
+          <ul class="more-info clearfix">
+            <li class="info-label clearfix"><%= link_to place.name, place %>
+              <% if place.reviews.present? %>
+              <span class="qty pull-right star-rating" data-score=<%= place.reviews.average(:rating).round(2) %>></span>
+            <% else %>
+              <span class="qty pull-right">No reviews yet!</span>
+              <% end %>
+            </li>
+          </ul>
+          <% end %>
+          <a class="serif italic" href="#" title="Continue">Continue &raquo;</a>
+        </div>
+      </div>
+      <!-- .span4 -->
+      <div class="span3">
+        <div class="info-box">
+          <h2 class="secion-title">Parks</h2>
+          <% @park_places.limit(5).each do |place| %>
+          <ul class="more-info clearfix">
+            <li class="info-label clearfix"><%= link_to place.name, place %>
+              <% if place.reviews.present? %>
+              <span class="qty pull-right star-rating" data-score=<%= place.reviews.average(:rating).round(2) %>></span>
+            <% else %>
+              <span class="qty pull-right">No reviews yet!</span>
+              <% end %>
+            </li>
+          </ul>
+          <% end %>
+          <a class="serif italic" href="#" title="Continue">Continue &raquo;</a>
+        </div>
+      </div>
+      <!-- .span4 -->
+      <div class="span3">
+        <div class="info-box">
+          <h2 class="secion-title">Waterfalls</h2>
+          <% @waterfall_places.limit(5).each do |place| %>
+          <ul class="more-info clearfix">
+            <li class="info-label clearfix"><%= link_to place.name, place %>
+              <% if place.reviews.present? %>
+              <span class="qty pull-right star-rating" data-score=<%= place.reviews.average(:rating).round(2) %>></span>
+            <% else %>
+              <span class="qty pull-right">No reviews yet!</span>
+              <% end %>
+            </li>
+          </ul>
+          <% end %>
+          <a class="serif italic" href="#" title="Continue">Continue &raquo;</a>
+        </div>
+      </div>
+      <!-- .span4 -->
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="span12 box-container">
+      <div class="row adv-message clearfix">
+        <div class="pull-left span7">
+          <p class="upper-line serif italic">Put a catchy tag line here!</p>
+          <p class="lower-line">This application is appropriate for someone looking for an amazing destination, who doesn't wanna waste their time.</p>
+        </div>
+        <!-- .pull-left -->
+        <a class="pull-right btn btn-large btn-realto span3" href="#" title="Buy It Now">Find It Now!</a>
+      </div>
+      <!-- .adv-message  -->
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="span8">
+      <h2 class="secion-title">Meet other users</h2>
+      <div class="row">
+        <div class="span2">
+          <div class="home-agents widget">
+            <a class="overlay" href="#" title="agent name">
+              <span class="more"></span>
+              <img alt="image" class="media-object" src="images/agent-01.jpg"/>
+            </a>
+            <p class="home-agent-name">John Doe</p>
+            <a class="serif italic" href="#" title="View profile page">View profile page &raquo;</a>
+          </div>
+          <!-- .home-agents -->
+        </div>
+        <div class="span2">
+          <div class="home-agents widget">
+            <a class="overlay" href="#" title="agent name">
+              <span class="more"></span>
+              <img alt="image" class="media-object" src="images/agent-02.jpg"/>
+            </a>
+            <p class="home-agent-name">Susan Underwood</p>
+            <a class="serif italic" href="#" title="View profile page">View profile page &raquo;</a>
+          </div>
+          <!-- .home-agents -->
+        </div>
+        <div class="span2">
+          <div class="home-agents widget">
+            <a class="overlay" href="#" title="agent name">
+              <span class="more"></span>
+              <img alt="image" class="media-object" src="images/agent-06.jpg"/>
+            </a>
+            <p class="home-agent-name">Erik Peterson</p>
+            <a class="serif italic" href="#" title="View profile page">View profile page &raquo;</a>
+          </div>
+          <!-- .home-agents -->
+        </div>
+        <div class="span2">
+          <div class="home-agents widget">
+            <a class="overlay" href="#" title="agent name">
+              <span class="more"></span>
+              <img alt="image" class="media-object" src="images/agent-07.jpg"/>
+            </a>
+            <p class="home-agent-name">Lu Jackson</p>
+            <a class="serif italic" href="#" title="View profile page">View profile page &raquo;</a>
+          </div>
+          <!-- .home-agents -->
+        </div>
+      </div>
+    </div>
+    <!-- .span8  -->
+    <div class="span4">
+      <div class="home-blog-articles widget">
+        <h2 class="secion-title">Articles from the Blog</h2>
+        <ul>
+          <li>
+            <i class="icon-caret-right"></i>
+            <a title="title" href="#">Lorem ipsum dolor sit amet, consectetur adipiscing</a>
+          </li>
+          <li>
+            <i class="icon-caret-right"></i>
+            <a title="title" href="#">Duis suscipit venenatis pellentesque tempor libero</a>
+          </li>
+          <li>
+            <i class="icon-caret-right"></i>
+            <a title="title" href="#">Etiam aliquet aliquam metus in tristique</a>
+          </li>
+          <li>
+            <i class="icon-caret-right"></i>
+            <a title="title" href="#">Cras venenatis pellentesque venenatis pellentesque</a>
+          </li>
+          <li>
+            <i class="icon-caret-right"></i>
+            <a title="title" href="#">Vivamus vitae venenatis pellentesque nunc sed nisl</a>
+          </li>
+          <li>
+            <i class="icon-caret-right"></i>
+            <a title="title" href="#">In tempus venenatis pellentesquetempor</a>
+          </li>
+          <li>
+            <i class="icon-caret-right"></i>
+            <a title="title" href="#">Suspendisse vulputate venenatis pellentesque quis</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- .span4  -->
+  </div>
+</div>
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function () {
+      return $(this).attr('data-score');
+    }
+  })
+</script>

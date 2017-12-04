@@ -1,0 +1,49 @@
+<div class="container page-content">
+  <div class="row">
+    <div class="span12">
+      <div class="row">
+        <% if @places.blank? %>
+        <h3>
+          Couldn't find a location with your search criteria!</h3>
+      <% else %>
+        <% @places.each do |place| %>
+        <div class="span4 box-container">
+          <div class="holder">
+            <a class="overlay" href="#" title="property title">
+              <span class="more"></span>
+              <% if place.image_url.present? %>
+              <%= link_to image_tag(place.image_url.to_s), place %>
+            <% else %>
+              <%= link_to image_tag("http://placehold.it/370x210"), place %>
+              <% end %>
+            </a>
+            <span class="prop-tag"><%= place.state.upcase %></span>
+            <div class="prop-info">
+              <h3 class="prop-title"><%= link_to place.name, place %></h3>
+              <ul class="more-info clearfix">
+                <li class="info-label clearfix">
+                  <span class="pull-left">Address:</span>
+                  <span class="qty pull-right"><%= place.address %></span>
+                </li>
+                <li class="info-label clearfix">
+                  <span class="pull-left">City:</span>
+                  <span class="qty pull-right"><%= place.city %></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
+      <!-- .row -->
+    </div>
+    <!-- .span12 -->
+  </div>
+  <!-- .row -->
+</div>
+<!-- .container -->
+<!-- .adv-message  -->
+</div>
+</div>
+</div>
