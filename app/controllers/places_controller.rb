@@ -23,10 +23,10 @@ def index
 
 
   @places = Place.all
-  @beach_places = Place.where(category_id: 2)
-  @trail_places = Place.where(category_id: 3)
-  @park_places = Place.where(category_id: 7)
-  @waterfall_places = Place.where(category_id: 5)
+  @beach_places = Place.where(category_id: 1)
+  @trail_places = Place.where(category_id: 7)
+  @park_places = Place.where(category_id: 6)
+  @waterfall_places = Place.where(category_id: 8)
 
 end
 
