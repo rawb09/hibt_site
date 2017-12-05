@@ -23,6 +23,8 @@ def set_place
 end
 
 
+
+
  def review_params
    params.require(:review). permit(:comment, :rating)
  end
