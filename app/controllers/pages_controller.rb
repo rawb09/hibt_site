@@ -8,7 +8,7 @@ class PagesController  < ApplicationController
 
 
   def beach
-      @beach_places = Place.where(category_id: 2)
+      @beach_places = Place.where(category_id: 1)
   end
 
   def all
