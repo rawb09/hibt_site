@@ -1,0 +1,10 @@
+<% @users.each do |user| %>
+  <ul>
+      <li><%= user.first_name %></li>
+  </ul>
+<% end %>
+ <% if User.last_seen? > 5 min (user)%>
+  <span> These are people online!</span>
+ <% else %>
+  <span>there is currently no one online!</span>
+ <% end %>

@@ -15,4 +15,8 @@ class PagesController  < ApplicationController
     @places = Place.all
   end
 
+  def users
+    @users = User.all
+  end
+
 end

@@ -349,6 +349,17 @@ a.overlay:hover .more {
 #home-search-container {
 	padding: 20px 0;
 	min-height: 340px;
+    background: url(../assets/wider.jpg) no-repeat center center;
+    background-image: url(../assets/wider.jpg);
+    background-position-x: center;
+    background-position-y: center;
+    background-size: initial;
+    background-repeat-x: no-repeat;
+    background-repeat-y: no-repeat;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
 }
 .head-title, .head-message, .header-cta {
 	-moz-animation: fadein 3s; /* Firefox */

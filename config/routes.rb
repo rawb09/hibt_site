@@ -12,4 +12,6 @@ Rails.application.routes.draw do
  match '/contact_us', to: 'pages#contact_us', via: :get
  match '/beach', to: 'pages#beach', via: :get
  match '/all', to: 'pages#all', via: :get
+ match '/users', to: 'pages#users', via: :get
 end
+ 

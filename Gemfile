@@ -5,6 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'devise_lastseenable'
+gem 'redis'
+gem 'onliner'
+
 gem 'bootstrap'
 gem 'carrierwave'
 gem 'geocoder'
