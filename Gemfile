@@ -5,9 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'devise_lastseenable'
-gem 'redis'
-gem 'onliner'
+
 
 gem 'bootstrap'
 gem 'carrierwave'
@@ -42,6 +40,7 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 0.18'
+
   gem 'rails_12factor'
 end
